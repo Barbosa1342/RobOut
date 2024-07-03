@@ -1,28 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Papel : MonoBehaviour
+public class Papel1 : ObjInteragivel
 {
-    public GameObject numero_senha,folha;
-
-
-    public void ativar()
-    {
-        folha.SetActive(true);
-        numero_senha.SetActive(true);
-    }
+    [SerializeField] GameObject folhaSenha;
     
-    public void desativar()
-    {
-        folha.SetActive(false);
-        numero_senha.SetActive(false);
+    private void Update() {
+        if (getPlayerPerto()){
+            Acao();
+        }else{
+            Desativar();
+        }
     }
 
-    protected void OnTriggerExit2D(Collider2D colisor)
-    {
-        desativar();
+    override public void Acao(){
+        if (Input.GetKeyDown(KeyCode.E)){
+            if (folhaSenha.activeSelf){
+                folhaSenha.SetActive(false);
+            }else{
+                folhaSenha.SetActive(true);
+            }
+        }
     }
 
+    public void Desativar(){
+        if(folhaSenha.activeSelf){
+            folhaSenha.SetActive(false);
+        }
+    }
 }

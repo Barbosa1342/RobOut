@@ -12,6 +12,7 @@ TagManager:
   - drone
   - intDrone
   - chao
+  - Interagivel
   layers:
   - Default
   - TransparentFX

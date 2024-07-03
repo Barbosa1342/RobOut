@@ -1,14 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Botao : MonoBehaviour
+public class Botao1 : ObjInteragivel
 {
-    public GameObject Porta;
+    [SerializeField] GameObject porta;
+    
+    private void Update() {
+        if (getPlayerPerto()){
+            Acao();
+        }
+    }
 
-    public void interagirBotao()
-    {
-        GetComponent<Animator>().SetTrigger("pressionado");
-        Porta.SetActive(false);
+    override public void Acao(){
+        if (Input.GetKeyDown(KeyCode.E)){
+            if (porta.activeSelf){
+                porta.SetActive(false);
+            }else{
+                porta.SetActive(true);
+            }
+        }
     }
 }
