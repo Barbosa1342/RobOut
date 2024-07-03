@@ -13,6 +13,7 @@ TagManager:
   - intDrone
   - chao
   - Interagivel
+  - Cientista
   layers:
   - Default
   - TransparentFX
