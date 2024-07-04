@@ -3,6 +3,7 @@ using UnityEngine;
 public class Jogador : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private SpriteRenderer virar;
 
     private bool estaNoChao;
     [SerializeField] float velocidade = 2.5f;
@@ -13,12 +14,13 @@ public class Jogador : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        virar = GetComponent<SpriteRenderer>();
     }
 
 
     void Update()
     {
-        Debug.Log(estaNoChao);
+
         pode_andar = gameObject.GetComponent<Troca>().pode_andar;
         if (Input.GetKey(KeyCode.W) && estaNoChao && pode_andar)
         {
@@ -26,10 +28,12 @@ public class Jogador : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.D) && pode_andar)
         {
+            virar.flipX = false;
             Andar(velocidade);
         }
         if (Input.GetKey(KeyCode.A) && pode_andar)
         {
+            virar.flipX = true;
             Andar(-velocidade);
         }
         if ((Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A)) || !pode_andar)
