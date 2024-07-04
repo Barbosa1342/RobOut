@@ -805,7 +805,7 @@ Transform:
   m_GameObject: {fileID: 204566176}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.3544617, y: 2.2800004, z: -9.432895}
+  m_LocalPosition: {x: 2.3633337, y: 2.2800004, z: -9.432895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1524,7 +1524,7 @@ GameObject:
   - component: {fileID: 517503273}
   - component: {fileID: 517503280}
   - component: {fileID: 517503279}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Robo
   m_TagString: Robo
   m_Icon: {fileID: 0}
@@ -1545,7 +1545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BotaoGuia: {fileID: 2119267940}
   direcaoRosto: 0
-  TrChao: {fileID: 2006826017}
+  TrChao: {fileID: 0}
   raioCh: 0.1
   noChao: 0
   intervaloDePulo: 0.2
@@ -1710,8 +1710,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2006826017}
   - {fileID: 2119267942}
+  - {fileID: 2060205877}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &517503279
@@ -1729,6 +1729,10 @@ MonoBehaviour:
   velocidade: 2.5
   forcaPulo: 5
   pode_andar: 0
+  detecta_chao: {fileID: 2060205877}
+  layer_chao:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &517503280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1831,7 +1835,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.3544617, y: 2.2800004, z: -9.432895}
+  m_LocalPosition: {x: 2.3633337, y: 2.2800004, z: -9.432895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1871,6 +1875,37 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &550193176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 550193177}
+  m_Layer: 0
+  m_Name: detecta_chao
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &550193177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550193176}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.4994, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 996381607}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &578770743
 GameObject:
   m_ObjectHideFlags: 0
@@ -5324,7 +5359,7 @@ GameObject:
   - component: {fileID: 996381602}
   - component: {fileID: 996381609}
   - component: {fileID: 996381608}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Cientista
   m_Icon: {fileID: 0}
@@ -5345,7 +5380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BotaoGuia: {fileID: 683731980}
   direcaoRosto: 0
-  TrChao: {fileID: 1803031485}
+  TrChao: {fileID: 0}
   raioCh: 0.1
   noChao: 1
   intervaloDePulo: 0.2
@@ -5508,8 +5543,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1803031485}
   - {fileID: 683731982}
+  - {fileID: 550193177}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &996381608
@@ -5527,6 +5562,10 @@ MonoBehaviour:
   velocidade: 2.5
   forcaPulo: 5
   pode_andar: 0
+  detecta_chao: {fileID: 550193177}
+  layer_chao:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &996381609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8159,37 +8198,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1803031484
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1803031485}
-  m_Layer: 0
-  m_Name: DetectaChaoP
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1803031485
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1803031484}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.47, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 996381607}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1901126675
 GameObject:
   m_ObjectHideFlags: 0
@@ -28182,37 +28190,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2006826016
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2006826017}
-  m_Layer: 0
-  m_Name: DetectaChaoR
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2006826017
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006826016}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.45, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 517503278}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2027056315
 GameObject:
   m_ObjectHideFlags: 0
@@ -28303,6 +28280,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1}
   m_EdgeRadius: 0
+--- !u!1 &2060205876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2060205877}
+  m_Layer: 0
+  m_Name: detecta_chao
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2060205877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060205876}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.471, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 517503278}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2060280006
 GameObject:
   m_ObjectHideFlags: 0

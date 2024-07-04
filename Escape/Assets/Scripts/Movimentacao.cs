@@ -5,10 +5,11 @@ public class Jogador : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer virar;
 
-    private bool estaNoChao;
     [SerializeField] float velocidade = 2.5f;
     [SerializeField] float forcaPulo = 15; //Deixei a gravity Scale do Jogador lá no rigidbody2D em 5
     public bool pode_andar;
+    public Transform detecta_chao;
+    public LayerMask layer_chao;
 
 
     void Start()
@@ -22,7 +23,7 @@ public class Jogador : MonoBehaviour
     {
 
         pode_andar = gameObject.GetComponent<Troca>().pode_andar;
-        if (Input.GetKey(KeyCode.W) && estaNoChao && pode_andar)
+        if (Input.GetKey(KeyCode.W) && estaNoChao() && pode_andar)
         {
             Pular(forcaPulo);
         }
@@ -61,20 +62,25 @@ public class Jogador : MonoBehaviour
         rb.velocity = new Vector2(0, rb.velocity.y);
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private bool estaNoChao()
     {
-        if (collision.gameObject.tag == "chao")
+        if (rb.velocity.y <= 0)
         {
-            estaNoChao = true;
+            //"cria" um circulo no objeto esta no chão criado
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(detecta_chao.position, 0.1f, layer_chao); 
+            
+            //Verifica o raio desse circulo
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                //Confere para ver se o objeto é o player, pois se for não vai retornar que é o chão
+                if (colliders[i].gameObject != gameObject)
+                {
+                    //Se o objeto não for o próprio player retorna verdadeiro para esta no chão
+                    return true;
+                }
+            }
         }
-    }
-
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "chao")
-        {
-            estaNoChao = false;
-        }
+        //Caso as verificações não sejam atendidas retorna falso, ou seja, player não esta no chão
+        return false;
     }
 }
