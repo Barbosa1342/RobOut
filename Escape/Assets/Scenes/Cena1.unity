@@ -1524,7 +1524,7 @@ GameObject:
   - component: {fileID: 517503273}
   - component: {fileID: 517503280}
   - component: {fileID: 517503279}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Robo
   m_TagString: Robo
   m_Icon: {fileID: 0}
@@ -1733,6 +1733,9 @@ MonoBehaviour:
   layer_chao:
     serializedVersion: 2
     m_Bits: 8
+  layer_player:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &517503280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1745,6 +1748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972dbd011b9fed94f91c3ec0a8af1204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outro_personagem: {fileID: 996381601}
   pode_andar: 0
   personagem_inicio: 0
   tag_troca: Cientista
@@ -5359,7 +5363,7 @@ GameObject:
   - component: {fileID: 996381602}
   - component: {fileID: 996381609}
   - component: {fileID: 996381608}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Player
   m_TagString: Cientista
   m_Icon: {fileID: 0}
@@ -5566,6 +5570,9 @@ MonoBehaviour:
   layer_chao:
     serializedVersion: 2
     m_Bits: 8
+  layer_player:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &996381609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5578,6 +5585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972dbd011b9fed94f91c3ec0a8af1204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outro_personagem: {fileID: 517503272}
   pode_andar: 0
   personagem_inicio: 1
   tag_troca: Robo
@@ -27933,7 +27941,7 @@ GameObject:
   - component: {fileID: 1982564178}
   - component: {fileID: 1982564177}
   - component: {fileID: 1982564176}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Robo
   m_Icon: {fileID: 0}

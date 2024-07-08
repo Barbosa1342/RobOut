@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Troca : MonoBehaviour
 {
-    GameObject outro_personagem; //GameObject que sera localizado usando a variavel "tagParaTrocaDePersonagem" para trocar a movimentacao
+    public GameObject outro_personagem; //GameObject que sera localizado usando a variavel "tagParaTrocaDePersonagem" para trocar a movimentacao
     public bool pode_andar; //Define se o personagem pode ou nao se mover
     public bool personagem_inicio; //Define qual dos personagens ira começar se movimentando (Assinale apenas em um personagem)
     public string tag_troca; //Informa a variavel "" qual será a tag que sera utilizada

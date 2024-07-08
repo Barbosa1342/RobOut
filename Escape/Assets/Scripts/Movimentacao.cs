@@ -10,6 +10,7 @@ public class Jogador : MonoBehaviour
     public bool pode_andar;
     public Transform detecta_chao;
     public LayerMask layer_chao;
+    public LayerMask layer_player;
 
 
     void Start()
@@ -21,8 +22,8 @@ public class Jogador : MonoBehaviour
 
     void Update()
     {
-
         pode_andar = gameObject.GetComponent<Troca>().pode_andar;
+        
         if (Input.GetKey(KeyCode.W) && estaNoChao() && pode_andar)
         {
             Pular(forcaPulo);
@@ -67,8 +68,8 @@ public class Jogador : MonoBehaviour
         if (rb.velocity.y <= 0)
         {
             //"cria" um circulo no objeto esta no chão criado
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(detecta_chao.position, 0.1f, layer_chao); 
-            
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(detecta_chao.position, 0.1f, layer_chao | layer_player);
+
             //Verifica o raio desse circulo
             for (int i = 0; i < colliders.Length; i++)
             {
