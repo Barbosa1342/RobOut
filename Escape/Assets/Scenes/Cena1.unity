@@ -6543,7 +6543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1408932116}
   - component: {fileID: 1408932115}
-  - component: {fileID: 1408932114}
+  - component: {fileID: 1408932117}
   m_Layer: 0
   m_Name: TrocaDeCena
   m_TagString: Untagged
@@ -6551,19 +6551,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1408932114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408932113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47ece7b718d23c64b88298dce738d24a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fase: Cena2
 --- !u!61 &1408932115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6624,6 +6611,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1408932117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408932113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860faf0bdba9c71478c4191b89182039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fase: Cena2
 --- !u!1 &1440625849
 GameObject:
   m_ObjectHideFlags: 0
