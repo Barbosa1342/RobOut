@@ -5,15 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Robo
-  - Bloco
-  - papel
-  - Botao
-  - Painel
   - drone
   - intDrone
   - chao
-  - Interagivel
   - Cientista
+  - InteragivelRobo
+  - InteragivelCientista
   layers:
   - Default
   - TransparentFX

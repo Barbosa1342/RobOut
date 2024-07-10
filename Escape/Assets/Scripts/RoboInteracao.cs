@@ -1,30 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerInteracao : MonoBehaviour
+public class RoboInteracao : MonoBehaviour
 {
-    [SerializeField] GameObject guia;
+    private GameObject guia;
+    private Troca trocaScript;
+    private bool podeAndar;
+
 
     private void Awake() {
         guia = gameObject.transform.GetChild(0).gameObject;
         guia.SetActive(false);
     }
 
+    void Start(){
+        trocaScript = gameObject.GetComponent<Troca>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collider){
-        if (collider.tag == "Interagivel"){
+        if (collider.tag == "InteragivelRobo"){
             setGuia(true);
             collider.GetComponent<ObjInteragivel>().setPlayerPerto(true);
-            //collider.GetComponent<Botao1>().setPlayerPerto(true);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collider){
-        if (collider.tag == "Interagivel"){
+        if (collider.tag == "InteragivelRobo"){
             setGuia(false);
             collider.GetComponent<ObjInteragivel>().setPlayerPerto(false);
-            //collider.GetComponent<Botao1>().setPlayerPerto(false);
         }
     }
 
@@ -33,5 +37,4 @@ public class PlayerInteracao : MonoBehaviour
             guia.SetActive(perto);
         }
     }
-
 }

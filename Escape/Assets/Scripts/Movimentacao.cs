@@ -6,12 +6,11 @@ public class Jogador : MonoBehaviour
     private SpriteRenderer virar;
 
     [SerializeField] float velocidade = 2.5f;
-    [SerializeField] float forcaPulo = 15; //Deixei a gravity Scale do Jogador lá no rigidbody2D em 5
-    public bool pode_andar;
-    public Transform detecta_chao;
-    public LayerMask layer_chao;
-    public LayerMask layer_player;
-
+    [SerializeField] float forcaPulo = 15; //Deixei a gravity Scale do Jogador lï¿½ no rigidbody2D em 5
+    private bool pode_andar;
+    [SerializeField] Transform detecta_chao;
+    [SerializeField] LayerMask layer_chao;
+    [SerializeField] LayerMask layer_player;
 
     void Start()
     {
@@ -19,11 +18,9 @@ public class Jogador : MonoBehaviour
         virar = GetComponent<SpriteRenderer>();
     }
 
-
     void Update()
     {
-        pode_andar = gameObject.GetComponent<Troca>().pode_andar;
-        
+        pode_andar = gameObject.GetComponent<Troca>().GetPodeAndar();
         if (Input.GetKey(KeyCode.W) && estaNoChao() && pode_andar)
         {
             Pular(forcaPulo);
@@ -67,21 +64,21 @@ public class Jogador : MonoBehaviour
     {
         if (rb.velocity.y <= 0)
         {
-            //"cria" um circulo no objeto esta no chão criado
+            //"cria" um circulo no objeto esta no chï¿½o criado
             Collider2D[] colliders = Physics2D.OverlapCircleAll(detecta_chao.position, 0.1f, layer_chao | layer_player);
 
             //Verifica o raio desse circulo
             for (int i = 0; i < colliders.Length; i++)
             {
-                //Confere para ver se o objeto é o player, pois se for não vai retornar que é o chão
+                //Confere para ver se o objeto ï¿½ o player, pois se for nï¿½o vai retornar que ï¿½ o chï¿½o
                 if (colliders[i].gameObject != gameObject)
                 {
-                    //Se o objeto não for o próprio player retorna verdadeiro para esta no chão
+                    //Se o objeto nï¿½o for o prï¿½prio player retorna verdadeiro para esta no chï¿½o
                     return true;
                 }
             }
         }
-        //Caso as verificações não sejam atendidas retorna falso, ou seja, player não esta no chão
+        //Caso as verificaï¿½ï¿½es nï¿½o sejam atendidas retorna falso, ou seja, player nï¿½o esta no chï¿½o
         return false;
     }
 }
