@@ -12,6 +12,7 @@ public class CientistaInteracao : MonoBehaviour
         guia.SetActive(false);
     }
 
+    /*
     private void OnTriggerEnter2D(Collider2D collider){
         if (collider.tag == "InteragivelCientista"){
             setGuia(true);
@@ -25,8 +26,9 @@ public class CientistaInteracao : MonoBehaviour
             collider.GetComponent<ObjInteragivel>().setPlayerPerto(false);
         }        
     }
+    */
 
-    private void setGuia(bool perto){
+    public void setGuia(bool perto){
         if (guia.activeSelf != perto){
             guia.SetActive(perto);
         }

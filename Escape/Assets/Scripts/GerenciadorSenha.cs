@@ -17,16 +17,39 @@ public class GerenciadorSenha : MonoBehaviour
 
     private void Awake()
     {
-        string senha = "";
+        LimpaSenha();
         for (int i = 0; i < 6; i++)
         {
             codigo[i] = Random.Range(0, 10);
-            LimpaSenha();
-
-            senha += codigo[i].ToString();
         }
-        Debug.Log(senha);
     }
+    
+    private void Start() {
+        geraPosicao();
+    }
+
+    private void geraPosicao(){
+        List<int> numerosPos = new List<int>() {0, 1, 2, 3, 4, 5};
+        int indice;
+
+        for (int i = 0; i < 6; i++){
+            indice = Random.Range(0, numerosPos.Count);
+
+            int numero = numerosPos[indice];
+            listaPapel[i].GetComponent<Papel1>().setPosicaoSenha(numero);
+            numerosPos.Remove(numero);
+        }
+    }
+
+    public void ativar(int posicao){
+        numeros[posicao].text = codigo[posicao].ToString();
+    }
+
+    public void desativar(int posicao){
+        numeros[posicao].text = "_";
+    }
+
+
 
     /*
     Testes Gerenciamento de Senha aleatoria em papeis aleatorios

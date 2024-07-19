@@ -10,10 +10,6 @@ public class Painel1 : ObjInteragivel
     private void Update() {
         if (getPlayerPerto()){
             Acao();
-        }else{
-            if(painel.activeSelf){
-                painel.SetActive(false);
-            }
         }
     }
 
@@ -34,5 +30,23 @@ public class Painel1 : ObjInteragivel
             }
             porta.SetActive(false);
         }
+    }
+
+    override public void OnTriggerEnter2D(Collider2D collider){
+        if (collider.tag == "Cientista"){
+            setPlayerPerto(true);
+            collider.GetComponent<CientistaInteracao>().setGuia(true);
+        }
+    }
+
+    override public void OnTriggerExit2D(Collider2D collider){
+        if (collider.tag == "Cientista"){
+            setPlayerPerto(false);
+            collider.GetComponent<CientistaInteracao>().setGuia(false);
+
+            if(painel.activeSelf){
+                painel.SetActive(false);
+            }
+        }        
     }
 }

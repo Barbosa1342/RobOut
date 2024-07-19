@@ -22,4 +22,18 @@ public class Botao1 : ObjInteragivel
             }
         }
     }
+    
+    override public void OnTriggerEnter2D(Collider2D collider){
+        if (collider.tag == "Cientista"){
+            setPlayerPerto(true);
+            collider.GetComponent<CientistaInteracao>().setGuia(true);
+        }
+    }
+
+    override public void OnTriggerExit2D(Collider2D collider){
+        if (collider.tag == "Cientista"){
+            setPlayerPerto(false);
+            collider.GetComponent<CientistaInteracao>().setGuia(false);
+        }        
+    }
 }

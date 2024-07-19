@@ -9,6 +9,10 @@ public class Troca : MonoBehaviour
     [SerializeField] bool personagem_inicio; //Define qual dos personagens ira come�ar se movimentando (Assinale apenas em um personagem)
     [SerializeField] string tag_troca; //Informa a variavel "" qual ser� a tag que sera utilizada
 
+    float tempoEspera;
+    float tempo;
+    bool podeTrocar;
+
     public bool GetPodeAndar(){
         return pode_andar;
     }
@@ -24,22 +28,40 @@ public class Troca : MonoBehaviour
         {
             pode_andar = true;
         }
+
+        tempoEspera = 0.5f;
+        podeTrocar = false;
+        tempo = 0.0f;
     }
 
     void Update()
     {
-//Verifica se a tecla "R" foi pressionado e se a variavel "personagemPodeAndar" esta true
-        if (Input.GetKeyUp(KeyCode.R) && pode_andar)
-        {
-            StartCoroutine(TrocarDePersonagem());
+        //Verifica se a tecla "R" foi pressionado e se a variavel "personagemPodeAndar" esta true
+        if (podeTrocar){
+            if (Input.GetKeyUp(KeyCode.R) && pode_andar)
+            {
+                StartCoroutine(TrocarDePersonagem());
+            }
+        }else{
+            tempo += Time.deltaTime;
+        }
+        
+        if (tempo >= tempoEspera){
+            podeTrocar = true;
         }
     }
 
-//Realiza a troca dos personagens utilizando uma corrotina para que possa se esperar 0.1 segundos e o pressionar do R funcione corretamente
+    public void Trocando(){
+        pode_andar = true;
+        podeTrocar = false;
+        tempo = 0.0f;
+    }
+
+    //Realiza a troca dos personagens utilizando uma corrotina para que possa se esperar 0.1 segundos e o pressionar do R funcione corretamente
     IEnumerator TrocarDePersonagem()
     {
         pode_andar = false;
         yield return new WaitForSeconds(0.01f);
-        outro_personagem.GetComponent<Troca>().pode_andar = true;
+        outro_personagem.GetComponent<Troca>().Trocando();
     }
 }

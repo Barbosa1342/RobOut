@@ -6,9 +6,11 @@ public class Bloco1 : ObjInteragivel
 {
     bool movendo = false;
     Rigidbody2D rg;
+
     private void Awake() {
         rg = GetComponent<Rigidbody2D>();
     }
+
     private void Update() {
         if (getPlayerPerto()){
             Acao();
@@ -29,5 +31,19 @@ public class Bloco1 : ObjInteragivel
         if (Input.GetKeyDown(KeyCode.E)){
             movendo = !movendo;
         }
+    }
+
+    override public void OnTriggerEnter2D(Collider2D collider){
+        if (collider.tag == "Robo"){
+            setPlayerPerto(true);
+            collider.GetComponent<RoboInteracao>().setGuia(true);
+        }
+    }
+
+    override public void OnTriggerExit2D(Collider2D collider){
+        if (collider.tag == "Robo"){
+            setPlayerPerto(false);
+            collider.GetComponent<RoboInteracao>().setGuia(false);
+        }        
     }
 }
