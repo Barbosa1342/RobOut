@@ -1,11 +1,12 @@
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Jogador : MonoBehaviour
+public class Movimentacao : MonoBehaviour
 {
     private Rigidbody2D rb;
     private SpriteRenderer virar;
-
-    [SerializeField] float velocidade = 2.5f;
+    [SerializeField] public float velocidade = 2.5f;
     [SerializeField] float forcaPulo = 15; //Deixei a gravity Scale do Jogador l� no rigidbody2D em 5
     private bool pode_andar;
     [SerializeField] Transform detecta_chao;
@@ -82,3 +83,4 @@ public class Jogador : MonoBehaviour
         return false;
     }
 }
+
