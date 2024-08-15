@@ -1524,7 +1524,7 @@ GameObject:
   - component: {fileID: 517503273}
   - component: {fileID: 517503280}
   - component: {fileID: 517503281}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Robo
   m_TagString: Robo
   m_Icon: {fileID: 0}
@@ -1743,14 +1743,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidade: 2.5
   forcaPulo: 5
-  velocidade_inimigo: 0
   detecta_chao: {fileID: 2060205877}
   layer_chao:
     serializedVersion: 2
     m_Bits: 8
   layer_player:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 320
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5362,7 +5361,7 @@ GameObject:
   - component: {fileID: 996381602}
   - component: {fileID: 996381609}
   - component: {fileID: 996381610}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Player
   m_TagString: Cientista
   m_Icon: {fileID: 0}
@@ -5579,14 +5578,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidade: 2.5
   forcaPulo: 5
-  velocidade_inimigo: 0
   detecta_chao: {fileID: 550193177}
   layer_chao:
     serializedVersion: 2
     m_Bits: 8
   layer_player:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 128
 --- !u!1 &1086542828
 GameObject:
   m_ObjectHideFlags: 0
@@ -8324,7 +8322,7 @@ GameObject:
   - component: {fileID: 1943860713}
   - component: {fileID: 1943860712}
   - component: {fileID: 1943860714}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rato
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8483,13 +8481,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eade376ed1a256041b30020fcf62e6c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidade: 0
-  raio_visao: 5
+  raio_visao: 2
   campo_visao: {fileID: 1273066282}
   layer_player:
     serializedVersion: 2
-    m_Bits: 256
-  rb_rato: {fileID: 0}
+    m_Bits: 64
+  rb_rato: {fileID: 1943860713}
+  alvo: {fileID: 996381607}
+  velocidade: 1
 --- !u!1001 &1961518442
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,34 +6,45 @@ using UnityEngine.UIElements;
 
 public class VisaoInimigo : MonoBehaviour
 {
+    //Variaveis para definir o alcance de visao do rato e fazer ele identificar o cientista
     [SerializeField] float raio_visao;
     [SerializeField] Transform campo_visao;
     [SerializeField] LayerMask layer_player;
-    [SerializeField] private Rigidbody2D rb_rato;
-    [SerializeField] private float velocidade_player;
 
-    // Start is called before the first frame update
+    //Variaveis para calcular a velocidade do rato e a posicao do player
+    [SerializeField] private Rigidbody2D rb_rato;
+    [SerializeField] Transform alvo;
+    [SerializeField] private float velocidade;
+
     void Start()
     {
+        //Definindo rigidbody rato
         rb_rato = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        velocidade_player = GetComponent<Movimentacao>().velocidade;
+
+        //se detectaplayer for verdadeiro e a tag for diferente do robo, rato segue cientista
         if (DetectaPlayer())
         {
-            Andar_teste(velocidade_player);
+            Andar(velocidade);
         }
+
+        //se detecta player for falso e a tag for igual a do rovo, rato fica parado 
         if (!DetectaPlayer()){
             Parar();
         }
     }
 
-    void Andar_teste(float velocidade_player)
+    void Andar(float velocidade_player)
     {
-        rb_rato.velocity = new Vector2(velocidade_player,rb_rato.velocity.y);
+        Vector2 posicao_alvo = this.alvo.position;
+        Vector2 posicao_rato = this.transform.position;
+        Vector2 direcao = posicao_alvo - posicao_rato;
+        direcao = direcao.normalized;
+        this.rb_rato.velocity = (this.velocidade * direcao);
     }
 
     void Parar()
@@ -47,19 +58,10 @@ public class VisaoInimigo : MonoBehaviour
             {
                 if (colliders[i].gameObject != gameObject)
                 {
-                
                 return true;
                 }
         }
         //Caso as verifica��es n�o sejam atendidas retorna falso, ou seja, player n�o esta no ch�o
         return false;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if ((collision.gameObject.tag == "Player" | collision.gameObject.tag == "Robo") && DetectaPlayer())
-        {
-            Andar_teste(-velocidade_player);
-        }
     }
 }
