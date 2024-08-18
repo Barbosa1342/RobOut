@@ -700,6 +700,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2374282074601604379, guid: 7500cd94873f9294bb228689f15199c6, type: 3}
+      propertyPath: forcaPulo
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4309503760152380238, guid: 7500cd94873f9294bb228689f15199c6, type: 3}
       propertyPath: m_Name
       value: Robo
@@ -4300,7 +4304,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 892392955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b737d4fae5f41b4aa3402bd1231e00d, type: 3}
+  m_Script: {fileID: 11500000, guid: efbea7fda31458947b3500c9c3da0025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &977185810
@@ -4826,7 +4830,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1479846462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b737d4fae5f41b4aa3402bd1231e00d, type: 3}
+  m_Script: {fileID: 11500000, guid: efbea7fda31458947b3500c9c3da0025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1487900229
@@ -5272,6 +5276,10 @@ PrefabInstance:
     - target: {fileID: 2931023465960903896, guid: e899f8f0a8c980c41858fe804d87c4b4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6538333924757827176, guid: e899f8f0a8c980c41858fe804d87c4b4, type: 3}
+      propertyPath: forcaPulo
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
