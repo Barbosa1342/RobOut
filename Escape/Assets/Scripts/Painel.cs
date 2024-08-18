@@ -7,9 +7,14 @@ public class Painel1 : ObjInteragivel
     [SerializeField] GameObject painel;
     [SerializeField] GameObject porta;
     
+    
     private void Update() {
         if (getPlayerPerto()){
-            Acao();
+            if (moveScript.GetPodeAndar()){
+                Acao();
+            }else{
+                painel.SetActive(false);
+            }
         }
     }
 
@@ -30,6 +35,11 @@ public class Painel1 : ObjInteragivel
             }
             porta.SetActive(false);
         }
+    }
+
+    private void Start() {
+        achaPersonagem("Cientista");
+        moveScript = personagem.GetComponent<Movimentacao>();
     }
 
     override public void OnTriggerEnter2D(Collider2D collider){

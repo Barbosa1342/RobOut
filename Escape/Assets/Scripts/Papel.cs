@@ -11,6 +11,8 @@ public class Papel1 : ObjInteragivel
     
     void Start(){
         scriptGerenciador = gerenciador.GetComponent<GerenciadorSenha>();
+        achaPersonagem("Cientista");
+        moveScript = personagem.GetComponent<Movimentacao>();
     }
 
 
@@ -24,24 +26,29 @@ public class Papel1 : ObjInteragivel
 
     private void Update() {
         if (getPlayerPerto()){
-            Acao();
+            if (moveScript.GetPodeAndar()){
+                Acao();
+            }else{
+                Ativar(false);
+            }
         }
     }
 
     override public void Acao(){
         if (Input.GetKeyDown(KeyCode.E)){
             if (folhaSenha.activeSelf){
-                folhaSenha.SetActive(false);
-                scriptGerenciador.desativar(getPosicaoSenha());
+                Ativar(false);
             }else{
-                folhaSenha.SetActive(true);
-                scriptGerenciador.ativar(getPosicaoSenha());
+                Ativar(true);
             }
         }
     }
 
-    public void Desativar(){
-        if(folhaSenha.activeSelf){
+    public void Ativar(bool ativo){
+        if (ativo){
+            folhaSenha.SetActive(true);
+            scriptGerenciador.ativar(getPosicaoSenha());
+        }else{
             folhaSenha.SetActive(false);
             scriptGerenciador.desativar(getPosicaoSenha());
         }
@@ -58,7 +65,7 @@ public class Papel1 : ObjInteragivel
         if (collider.tag == "Cientista"){
             setPlayerPerto(false);
             collider.GetComponent<CientistaInteracao>().setGuia(false);
-            Desativar();
+            Ativar(false);
         }        
     }
 }

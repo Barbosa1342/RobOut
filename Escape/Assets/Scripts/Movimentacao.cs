@@ -5,18 +5,20 @@ using UnityEngine;
 public class Movimentacao : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private SpriteRenderer virar;
-    [SerializeField] public float velocidade = 2.5f;
+    [SerializeField] float velocidade = 2.5f;
     [SerializeField] float forcaPulo = 15; //Deixei a gravity Scale do Jogador l� no rigidbody2D em 5
     private bool pode_andar;
     [SerializeField] Transform detecta_chao;
     [SerializeField] LayerMask layer_chao;
     [SerializeField] LayerMask layer_player;
 
+    public bool GetPodeAndar(){
+        return pode_andar;
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        virar = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -28,12 +30,10 @@ public class Movimentacao : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.D) && pode_andar)
         {
-            virar.flipX = false;
             Andar(velocidade);
         }
         if (Input.GetKey(KeyCode.A) && pode_andar)
         {
-            virar.flipX = true;
             Andar(-velocidade);
         }
         if ((Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A)) || !pode_andar)

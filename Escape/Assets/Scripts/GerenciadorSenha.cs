@@ -6,33 +6,40 @@ using TMPro;
 
 public class GerenciadorSenha : MonoBehaviour
 {
-    [SerializeField] TMP_Text[] numeros = new TMP_Text[6];
-    [SerializeField] GameObject[] listaPapel = new GameObject[6];
+    [SerializeField] List<TMP_Text> numeros = new();
+    [SerializeField] List<GameObject> listaPapel = new();
     [SerializeField] TMP_Text senhaDigitada;
-    
-    int[] codigo = new int[6];
+    private List<int> codigo = new();
     List<int> tentativa = new List<int>();
-    
     [SerializeField] GameObject painel;
+
+    int quantidade;
 
     private void Awake()
     {
         LimpaSenha();
-        for (int i = 0; i < 6; i++)
-        {
-            codigo[i] = Random.Range(0, 10);
-        }
     }
     
     private void Start() {
+        quantidade = numeros.Count;
+        for (int i = 0; i < quantidade; i++)
+        {
+            codigo.Add(Random.Range(0, 10));
+        }
+
         geraPosicao();
     }
 
     private void geraPosicao(){
-        List<int> numerosPos = new List<int>() {0, 1, 2, 3, 4, 5};
+        List<int> numerosPos = new List<int>();
+        for (int i = 0; i < quantidade; i++)
+        {
+            numerosPos.Add(i);
+        }
+
         int indice;
 
-        for (int i = 0; i < 6; i++){
+        for (int i = 0; i < quantidade; i++){
             indice = Random.Range(0, numerosPos.Count);
 
             int numero = numerosPos[indice];
@@ -49,27 +56,6 @@ public class GerenciadorSenha : MonoBehaviour
         numeros[posicao].text = "_";
     }
 
-
-
-    /*
-    Testes Gerenciamento de Senha aleatoria em papeis aleatorios
-    public void Ativar(int pos){
-        int numeroAtual = codigo[pos];
-
-        numeros[pos].text = numeroAtual.ToString();
-    }
-
-    void codigoPainel(){
-        string temp = "";
-
-        for (int i = 0; i < 6; i++)
-        {
-            temp += codigo[i].ToString();
-        }
-
-        painel.setSenha(temp);
-    }*/
-
     public void AdicionaNumero(int num){
         if (tentativa.Count < 10){
             tentativa.Add(num);
@@ -85,7 +71,7 @@ public class GerenciadorSenha : MonoBehaviour
             teste += tentativa[i].ToString();
         }
 
-        for (int i = 0; i < codigo.Length; i++){
+        for (int i = 0; i < codigo.Count; i++){
             senha += codigo[i].ToString();
         }
 

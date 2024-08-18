@@ -13,12 +13,19 @@ public class Botao1 : ObjInteragivel
         }
     }
 
+    private void Start() {
+        achaPersonagem("Cientista");
+        moveScript = personagem.GetComponent<Movimentacao>();
+    }
+
     override public void Acao(){
         if (Input.GetKeyDown(KeyCode.E)){
-            if (porta.activeSelf){
-                porta.SetActive(false);
-            }else{
-                porta.SetActive(true);
+            if(moveScript.GetPodeAndar()){
+                if (porta.activeSelf){
+                    porta.SetActive(false);
+                }else{
+                    porta.SetActive(true);
+                }
             }
         }
     }
