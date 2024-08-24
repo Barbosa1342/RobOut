@@ -9,7 +9,7 @@ public class Bala : MonoBehaviour
         LayerMask layerChao = LayerMask.NameToLayer("chao");
         
         if (colisor.CompareTag("Cientista") || colisor.CompareTag("Robo")){
-            colisor.gameObject.GetComponent<Vida>().alteraVidaAtual(-1);
+            colisor.gameObject.GetComponent<Vida>().RecebeDano(1);
         }
         else if (colisor.gameObject.layer == layerChao){
             gameObject.SetActive(false);

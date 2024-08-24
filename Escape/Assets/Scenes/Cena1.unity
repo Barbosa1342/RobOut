@@ -1524,6 +1524,7 @@ GameObject:
   - component: {fileID: 517503273}
   - component: {fileID: 517503280}
   - component: {fileID: 517503281}
+  - component: {fileID: 517503282}
   m_Layer: 7
   m_Name: Robo
   m_TagString: Robo
@@ -1706,7 +1707,7 @@ Transform:
   m_GameObject: {fileID: 517503272}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.839, y: 1.842, z: 0}
+  m_LocalPosition: {x: -0.59, y: 3.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1743,13 +1744,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidade: 2.5
   forcaPulo: 5
+  pode_andar: 0
   detecta_chao: {fileID: 2060205877}
   layer_chao:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
   layer_player:
     serializedVersion: 2
     m_Bits: 320
+--- !u!114 &517503282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517503272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd940fdff9a7fc4e85b8c1b8536e4f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 517503276}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5361,6 +5376,8 @@ GameObject:
   - component: {fileID: 996381602}
   - component: {fileID: 996381609}
   - component: {fileID: 996381610}
+  - component: {fileID: 996381611}
+  - component: {fileID: 996381612}
   m_Layer: 6
   m_Name: Player
   m_TagString: Cientista
@@ -5578,6 +5595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidade: 2.5
   forcaPulo: 5
+  pode_andar: 0
   detecta_chao: {fileID: 550193177}
   layer_chao:
     serializedVersion: 2
@@ -5585,6 +5603,36 @@ MonoBehaviour:
   layer_player:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &996381611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996381601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd940fdff9a7fc4e85b8c1b8536e4f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 996381605}
+--- !u!114 &996381612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996381601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f4ea48ae836c94186666e8dfab68d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaMax: 100
+  player: {fileID: 996381601}
+  inimigo: {fileID: 1943860708}
+  invencivel: 0
+  vidaAtual: 0
 --- !u!1 &1086542828
 GameObject:
   m_ObjectHideFlags: 0
@@ -8322,6 +8370,7 @@ GameObject:
   - component: {fileID: 1943860713}
   - component: {fileID: 1943860712}
   - component: {fileID: 1943860714}
+  - component: {fileID: 1943860715}
   m_Layer: 8
   m_Name: Rato
   m_TagString: Untagged
@@ -8478,7 +8527,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1943860708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eade376ed1a256041b30020fcf62e6c6, type: 3}
+  m_Script: {fileID: 11500000, guid: d53e6252b07c6064eb6843d148372153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   raio_visao: 2
@@ -8488,7 +8537,25 @@ MonoBehaviour:
     m_Bits: 64
   rb_rato: {fileID: 1943860713}
   alvo: {fileID: 996381607}
-  velocidade: 1
+  velocidade: 2
+--- !u!114 &1943860715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943860708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bec2218d1fc7e7408e51b3929c550c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inimigo: {fileID: 996381601}
+  toma_dano: 0
+  dano: 5
+  pode_atacar: 0
+  tag_alvo: Cientista
+  inimigo_anda: 0
 --- !u!1001 &1961518442
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -25,7 +25,6 @@ public class VisaoInimigo : MonoBehaviour
 
     void Update()
     {
-
         //se detectaplayer for verdadeiro e a tag for diferente do robo, rato segue cientista
         if (DetectaPlayer())
         {
@@ -33,7 +32,8 @@ public class VisaoInimigo : MonoBehaviour
         }
 
         //se detecta player for falso e a tag for igual a do rovo, rato fica parado 
-        if (!DetectaPlayer()){
+        if (!DetectaPlayer())
+        {
             Parar();
         }
     }
@@ -49,17 +49,19 @@ public class VisaoInimigo : MonoBehaviour
 
     void Parar()
     {
-        rb_rato.velocity = new Vector2(0,0);
+        rb_rato.velocity = new Vector2(0, 0);
     }
+
     private bool DetectaPlayer()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(campo_visao.position, raio_visao, layer_player);
         for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].gameObject != gameObject)
             {
-                if (colliders[i].gameObject != gameObject)
-                {
+                rb_rato.gameObject.GetComponent<Ataque_Inimigo>().pode_atacar = true;
                 return true;
-                }
+            }
         }
         //Caso as verifica��es n�o sejam atendidas retorna falso, ou seja, player n�o esta no ch�o
         return false;

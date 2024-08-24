@@ -7,7 +7,7 @@ public class Movimentacao : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] float velocidade = 2.5f;
     [SerializeField] float forcaPulo = 15; //Deixei a gravity Scale do Jogador l� no rigidbody2D em 5
-    private bool pode_andar;
+    public bool pode_andar;
     [SerializeField] Transform detecta_chao;
     [SerializeField] LayerMask layer_chao;
     [SerializeField] LayerMask layer_player;
@@ -56,7 +56,7 @@ public class Movimentacao : MonoBehaviour
     }
 
 
-    void Parar()
+    public void Parar()
     {
         rb.velocity = new Vector2(0, rb.velocity.y);
     }
