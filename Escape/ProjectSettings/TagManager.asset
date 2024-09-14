@@ -15,6 +15,7 @@ TagManager:
   - Bloco
   - Painel
   - Botao
+  - Drone
   layers:
   - Default
   - TransparentFX

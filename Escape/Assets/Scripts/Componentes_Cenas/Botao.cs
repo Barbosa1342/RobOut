@@ -6,7 +6,13 @@ using UnityEngine;
 public class Botao1 : ObjInteragivel
 {
     [SerializeField] GameObject porta;
+    Porta scriptPorta;
     
+    [SerializeField] AudioSource controladorSom;
+    [SerializeField] AudioClip somPorta;
+
+    bool podeInteragir;
+
     private void Update() {
         if (getPlayerPerto()){
             Acao();
@@ -16,16 +22,14 @@ public class Botao1 : ObjInteragivel
     private void Start() {
         achaPersonagem("Cientista");
         moveScript = personagem.GetComponent<Movimentacao>();
+        podeInteragir = true;
+        scriptPorta = porta.GetComponent<Porta>();
     }
 
     override public void Acao(){
         if (Input.GetKeyDown(KeyCode.E)){
-            if(moveScript.GetPodeAndar()){
-                if (porta.activeSelf){
-                    porta.SetActive(false);
-                }else{
-                    porta.SetActive(true);
-                }
+            if(moveScript.GetPodeAndar() && podeInteragir){
+                StartCoroutine(InteragePorta());
             }
         }
     }
@@ -42,5 +46,20 @@ public class Botao1 : ObjInteragivel
             setPlayerPerto(false);
             collider.GetComponent<CientistaInteracao>().setGuia(false);
         }        
+    }
+
+    private IEnumerator InteragePorta(){
+        podeInteragir = false;
+
+        if (scriptPorta.GetAberta()){
+            scriptPorta.AbrePorta(false);
+        }else{
+            scriptPorta.AbrePorta(true);
+        }
+        controladorSom.PlayOneShot(somPorta);
+
+        yield return new WaitForSeconds(0.5f);
+
+        podeInteragir = true;
     }
 }

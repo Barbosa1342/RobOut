@@ -9,11 +9,16 @@ public class RoboAnim : MonoBehaviour
     Movimentacao movimentacaoScript;
 
     bool empurrando;
+    bool atirando;
     private SpriteRenderer sprite;
    
 
     public void setEmpurrando(bool estaEmpurrando){
         empurrando = estaEmpurrando;
+    }
+
+    public void setAtirando(bool estaAtirando){
+        atirando = estaAtirando;
     }
 
     void Awake()
@@ -27,20 +32,23 @@ public class RoboAnim : MonoBehaviour
     void Update()
     {
         if (movimentacaoScript.GetPodeAndar()){
-            if (Mathf.Abs(rg.velocity.x) > 0.01f){
+            anim.SetBool("atirando", atirando);
+            
+            if(!atirando){
+                if (movimentacaoScript.GetAndando()){
                 anim.SetBool("andando", true);
-            }else{
-                anim.SetBool("andando", false);
-            }
-
-            if (!empurrando){
-                if (Input.GetAxisRaw("Horizontal") > 0.1f){
-                    sprite.flipX = false;
-                }else if(Input.GetAxisRaw("Horizontal") < -0.1f){
-                    sprite.flipX = true;
+                }else{
+                    anim.SetBool("andando", false);
                 }
-            }
 
+                if (!empurrando){
+                    if (Input.GetAxisRaw("Horizontal") > 0.1f){
+                        sprite.flipX = false;
+                    }else if(Input.GetAxisRaw("Horizontal") < -0.1f){
+                        sprite.flipX = true;
+                    }
+                }
+            }            
         }else{
             anim.SetBool("andando", false);
         }

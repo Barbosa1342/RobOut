@@ -20,12 +20,12 @@ public class CientistaAnim : MonoBehaviour
         // Apenas altera as animacoes quando o personagem esta ativo
         // Do contrario, fica na animacao de Idle (parado)
         if (movimentacaoScript.GetPodeAndar()){
-            if (Mathf.Abs(rg.velocity.x) > 0.01f){
+            if (movimentacaoScript.GetAndando()){
                 anim.SetBool("andando", true);
             }else{
                 anim.SetBool("andando", false);
             }
-
+            
             if (Input.GetAxisRaw("Horizontal") > 0.1f){
                     sprite.flipX = false;
                 }else if(Input.GetAxisRaw("Horizontal") < -0.1f){

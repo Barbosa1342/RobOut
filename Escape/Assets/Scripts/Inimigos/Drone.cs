@@ -11,13 +11,15 @@ public class Drone1 : MonoBehaviour
     bool virado;
     float yInicial;
 
-
     bool podeAtirar = true;
     public Transform posicaoSpawn;
     public Transform objeto; 
 
+    Animator anim;
+
     private void Awake() {
         sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     void Start()
@@ -59,6 +61,8 @@ public class Drone1 : MonoBehaviour
     private IEnumerator Tiro()
     {
         podeAtirar = false;
+        anim.SetBool("atirando", true);
+
         Vector2 direcao;
 
         if (!virado){
@@ -73,6 +77,7 @@ public class Drone1 : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         podeAtirar = true;
+        anim.SetBool("atirando", false);
     }
 
     void Flutuar(){

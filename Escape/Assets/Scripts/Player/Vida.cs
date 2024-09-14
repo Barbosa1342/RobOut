@@ -5,13 +5,8 @@ using UnityEngine;
 public class Vida : MonoBehaviour
 {
     [SerializeField] float vidaMax;
-    [SerializeField] GameObject player, inimigo;
     public bool invencivel = false;
     public float vidaAtual;
-
-    private void Start()
-    {
-    }
 
     public float getVidaAtual(){
         return vidaAtual;
@@ -31,8 +26,16 @@ public class Vida : MonoBehaviour
     void Update()
     {
         if (vidaAtual <= 0){
-            gameObject.SetActive(false);
+            if(this.CompareTag("Cientista") || this.CompareTag("Robo")){
+                GerenciadorCheckPoint.Respawn(transform);
+            }else{
+                gameObject.SetActive(false);
+            }
         }
+    }
+
+    public void RecuperaVida(){
+        vidaAtual = vidaMax;
     }
 
     public IEnumerator Invencibilidade()
