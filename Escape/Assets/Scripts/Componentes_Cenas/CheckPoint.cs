@@ -27,7 +27,6 @@ public class CheckPoint : MonoBehaviour
     }
 
     public void Animacao(bool ativando){
-        Debug.Log("AAA");
         if (ativando){
             anim.Play("CheckPoint");    
         }else{

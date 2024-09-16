@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 48ec42dab2fbdb1438c6d1115e44c406
+guid: bc9825b7f778fa544a8e5f0a8d2ce01d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: drone_idle1_0
+      name: RatoAndando_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,41 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed0330a1f51b64d42a7d5bea2efd3d96
-      internalID: 1969083481
+      spriteID: 316cd4af556be0f49a2b706452a9d576
+      internalID: 44018258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_idle1_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3ab5b667a2002924f9daeba37df655cf
-      internalID: -45791543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: drone_idle1_2
+      name: RatoAndando_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +132,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84d875e3cfbec5445a3c388b37c81b42
-      internalID: -1263951202
+      spriteID: 2e4cd8c3500c6d848990a202784cd9e0
+      internalID: -325852056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatoAndando_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 075d1f435423be94ab1df6b17d2cdce3
+      internalID: 564789400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatoAndando_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7c87bfa0a1aa114588d53ea39caad8c
+      internalID: 1277796109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatoAndando_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 269408431a306204dacf95bd5507f5ce
+      internalID: 1204215903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatoAndando_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b4f58d9aa888b145b1339d0638101bb
+      internalID: 2050088005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatoAndando_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bd6646805c95394abc64723ef505768
+      internalID: 1158071490
       vertices: []
       indices: 
       edges: []
@@ -170,9 +254,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      drone_idle1_0: 1969083481
-      drone_idle1_1: -45791543
-      drone_idle1_2: -1263951202
+      RatoAndando_0: 44018258
+      RatoAndando_1: -325852056
+      RatoAndando_2: 564789400
+      RatoAndando_3: 1277796109
+      RatoAndando_4: 1204215903
+      RatoAndando_5: 2050088005
+      RatoAndando_6: 1158071490
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

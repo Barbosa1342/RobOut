@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: drone_atirando
+  m_Name: droneParado
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 1663459238, guid: c7688c9d17cdb91438dd510728aede13, type: 3}
+      value: {fileID: 239488415, guid: 48ba98610e5562a4ba1acb08e3001f32, type: 3}
     - time: 0.083333336
-      value: {fileID: -79929043, guid: c7688c9d17cdb91438dd510728aede13, type: 3}
+      value: {fileID: 320806983, guid: 48ba98610e5562a4ba1acb08e3001f32, type: 3}
     - time: 0.16666667
-      value: {fileID: 786197217, guid: c7688c9d17cdb91438dd510728aede13, type: 3}
+      value: {fileID: 1481828498, guid: 48ba98610e5562a4ba1acb08e3001f32, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,9 +48,9 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 1663459238, guid: c7688c9d17cdb91438dd510728aede13, type: 3}
-    - {fileID: -79929043, guid: c7688c9d17cdb91438dd510728aede13, type: 3}
-    - {fileID: 786197217, guid: c7688c9d17cdb91438dd510728aede13, type: 3}
+    - {fileID: 239488415, guid: 48ba98610e5562a4ba1acb08e3001f32, type: 3}
+    - {fileID: 320806983, guid: 48ba98610e5562a4ba1acb08e3001f32, type: 3}
+    - {fileID: 1481828498, guid: 48ba98610e5562a4ba1acb08e3001f32, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class RoboInteracao : MonoBehaviour
 {
     private GameObject guia;
-    [SerializeField] RoboAnim scriptAnim;
+    RoboAnim scriptAnim;
 
     public Transform posicaoSpawn;
     public Transform objeto; 
@@ -13,6 +13,7 @@ public class RoboInteracao : MonoBehaviour
     SpriteRenderer sprite;
     bool virado;
     bool podeAtirar;
+    [SerializeField] float velocidadeTiro = 2.0f;
 
     private void Awake() {
         guia = gameObject.transform.GetChild(0).gameObject;
@@ -66,7 +67,7 @@ public class RoboInteracao : MonoBehaviour
         // posiciona conforme a orientacao do robo
         bala.localPosition = pos;
         // adiciona velocidade de uma so vez
-        bala.GetComponent<Rigidbody2D>().AddForce(direcao, ForceMode2D.Impulse);
+        bala.GetComponent<Rigidbody2D>().AddForce(direcao * velocidadeTiro, ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(1f);
 

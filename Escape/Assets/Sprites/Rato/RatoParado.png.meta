@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c7688c9d17cdb91438dd510728aede13
+guid: 67601b1744cf128419958c7d7fb62af3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: drone_attack_0
+      name: RatoParado_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,41 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61768146450676a44a22d9a888ce8c9b
-      internalID: 1663459238
+      spriteID: fcb9f45b7a927ab4984cf0dfbec1768f
+      internalID: 329465170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_attack_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ab8dca8fe6f52ac4095dcac21ec1191e
-      internalID: -79929043
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: drone_attack_2
+      name: RatoParado_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +132,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c4e180224c03a84aa6eeace4bb78960
-      internalID: 786197217
+      spriteID: 3f7aea286667a4c47b7c710c792e2760
+      internalID: 399630293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatoParado_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 061ae54302fbf9848ad8fce98e3e488e
+      internalID: -945563488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatoParado_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab70d15499f86504c8419bd3d7a6ec68
+      internalID: 542555770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatoParado_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47e5f9b72b9999d4ab958a5c9494706e
+      internalID: 262186205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatoParado_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 815b939eee699a94e9b86b6df1877fe2
+      internalID: 837884767
       vertices: []
       indices: 
       edges: []
@@ -170,9 +233,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      drone_attack_0: 1663459238
-      drone_attack_1: -79929043
-      drone_attack_2: 786197217
+      RatoParado_0: 329465170
+      RatoParado_1: 399630293
+      RatoParado_2: -945563488
+      RatoParado_3: 542555770
+      RatoParado_4: 262186205
+      RatoParado_5: 837884767
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

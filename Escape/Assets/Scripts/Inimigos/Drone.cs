@@ -1,35 +1,114 @@
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class Drone1 : MonoBehaviour
+public class Drone1 : Inimigo
 {
-    [SerializeField] float distanciaLaser = 3.0f;
-    [SerializeField] LayerMask layer_player;
+    // Variaveis usadas pelo RayCast
+    //[SerializeField] float distanciaLaser = 3.0f; 
+    //[SerializeField] LayerMask layer_player;
+    //bool virado;
 
-    SpriteRenderer sprite;
-    bool virado;
-    float yInicial;
+    // distancia maxima que o drone chega perto do player
+    [SerializeField] float distanciaSegura = 1.0f; 
+    [SerializeField] float velocidadeBala = 2.0f; 
+    
+    float yInicial; // y usado para flutuar
+    bool podeAtirar; // controle do tiro
+    public Transform posicaoSpawn; // filho pra usar de local de spawn
+    public Transform balaPrefab; // objeto a ser instanciado
 
-    bool podeAtirar = true;
-    public Transform posicaoSpawn;
-    public Transform objeto; 
-
-    Animator anim;
-
-    private void Awake() {
-        sprite = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
-    }
-
-    void Start()
+    override protected void Start()
     {
-        podeAtirar = true;
+        cientista = AchaPersonagem("Cientista").GetComponent<Transform>();
+        robo = AchaPersonagem("Robo").GetComponent<Transform>();
 
-        virado = sprite.flipX;
+        podeAtirar = true;
+        patrulhando = false;
         yInicial = transform.position.y;
     }
 
+    private void Update() {
+        Vector2 direcao = DirecaoInimigoMaisProximo();
+        if (DetectaPlayer(direcao))
+        {
+            if(patrulhando){
+                StopCoroutine(Patrulha());
+                patrulhando = false;
+            }
+
+            if(podeAtirar){
+                StartCoroutine(Tiro(direcao));
+            }
+        
+            if(distanciaSegura < Math.Abs(direcao.x)){
+                Andar(velocidade, direcao);
+            }
+        }else{ 
+            if (!patrulhando){
+                StartCoroutine(Patrulha());
+                patrulhando = true;
+            }
+        }
+        Flutuar();
+    }
+
+    void Flutuar(){
+        Vector2 dest = new(transform.position.x, yInicial + (Mathf.Cos(Time.fixedTime * Mathf.PI) * 0.2f));
+        transform.position = dest;
+    }
+
+    override protected void Andar(float velocidadeInimigo, Vector2 direcao){
+        direcao = direcao.normalized;
+        direcao.y = 0; // necessario pra ele nao flutuar
+        rbInimigo.velocity = velocidade * direcao;
+
+        if (rbInimigo.velocity.x >= 0.01f){
+            sprite.flipX = false;
+        }
+        else if (rbInimigo.velocity.x <= -0.01f){
+            sprite.flipX = true;
+        }
+    }
+
+    override protected void Parar(){
+        rbInimigo.velocity = new Vector2(0, 0);
+    }
+
+    override protected IEnumerator Patrulha(){
+        int escolha = UnityEngine.Random.Range(1, 3); // range entre 0 e 1
+
+        Vector2 direcao;
+        if (escolha == 0){
+            direcao = Vector2.left;
+            sprite.flipX = true;
+        }
+        else{
+            direcao = Vector2.right;
+            sprite.flipX = false;
+        }
+
+        rbInimigo.velocity = velocidade * direcao;
+
+        int tempo = UnityEngine.Random.Range(1, 3);
+        
+        yield return new WaitForSeconds(tempo);
+
+        Parar();
+
+        yield return new WaitForSeconds(tempo);
+
+        patrulhando = false;
+    }
+    protected override bool DetectaPlayer(Vector2 direcao)
+    {
+        if (Math.Abs(direcao.x) < raioVisao && Math.Abs(direcao.y) < raioVisao){
+            return true;
+        }
+        return false;
+    }
+
+    /*
     private void FixedUpdate() {
         Flutuar();
 
@@ -53,36 +132,25 @@ public class Drone1 : MonoBehaviour
             Debug.Log("Acertando: " + acerto.collider.tag);
 
             if (podeAtirar){
-                StartCoroutine(Tiro());
+                
             }
         }
-    }
+    }*/
 
-    private IEnumerator Tiro()
+    private IEnumerator Tiro(Vector2 direcao)
     {
         podeAtirar = false;
         anim.SetBool("atirando", true);
 
-        Vector2 direcao;
+        direcao.y = 0;
+        direcao = direcao.normalized;
 
-        if (!virado){
-            direcao = Vector2.left;
-        }else{
-            direcao = Vector2.right;
-        }
-
-        Transform bala = Instantiate(objeto, posicaoSpawn.position, transform.rotation);
-        bala.GetComponent<Rigidbody2D>().AddForce(direcao, ForceMode2D.Impulse);
+        Transform bala = Instantiate(balaPrefab, posicaoSpawn.position, transform.rotation);
+        bala.GetComponent<Rigidbody2D>().AddForce(direcao*velocidadeBala, ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(1f);
 
         podeAtirar = true;
         anim.SetBool("atirando", false);
     }
-
-    void Flutuar(){
-        Vector2 dest = new(transform.position.x, yInicial + (Mathf.Cos(Time.fixedTime * Mathf.PI) * 0.2f));
-        transform.position = dest;
-    }
-
 }
