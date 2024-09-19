@@ -41,7 +41,6 @@ public class Rato : Inimigo
             if (invencivel == false)
             {
                 collider.gameObject.GetComponent<Vida>().RecebeDano(dano);
-                Debug.Log(vidaInimigo);
             }
         }
     }

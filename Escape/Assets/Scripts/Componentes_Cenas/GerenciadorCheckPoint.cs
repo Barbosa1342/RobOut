@@ -12,8 +12,13 @@ public class GerenciadorCheckPoint : MonoBehaviour
     private void Awake() {
         indiceAtual = -1;
     }
+
     static public void RegistraCheckPoint(int indice, Transform checkPoint){
         checkPoints.Add(indice, checkPoint);
+    }
+
+    static public void RemoveCheckPoint(int indice){
+        checkPoints.Remove(indice);
     }
 
     static public int GetIndiceAtual(){
@@ -36,6 +41,7 @@ public class GerenciadorCheckPoint : MonoBehaviour
     static public void Respawn(Transform trans){
         if(indiceAtual != -1){
             trans.position = checkPoints[indiceAtual].position;
+            trans.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             trans.gameObject.GetComponent<Vida>().RecuperaVida();
         }
     }

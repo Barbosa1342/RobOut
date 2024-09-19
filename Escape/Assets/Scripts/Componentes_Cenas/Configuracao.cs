@@ -20,7 +20,7 @@ public class Configuracao : MonoBehaviour
 
     public void Reiniciar()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().ToString());
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void AbreMenu()

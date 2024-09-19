@@ -13,8 +13,12 @@ public class CheckPoint : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    private void Start(){
+    private void OnEnable() {
         GerenciadorCheckPoint.RegistraCheckPoint(indice, transform);
+    }
+
+    private void OnDisable() {
+        GerenciadorCheckPoint.RemoveCheckPoint(indice);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

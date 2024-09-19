@@ -6,7 +6,7 @@ public class RoboInteracao : MonoBehaviour
 {
     private GameObject guia;
     RoboAnim scriptAnim;
-
+    Movimentacao movimentacaoScript;
     public Transform posicaoSpawn;
     public Transform objeto; 
 
@@ -20,6 +20,8 @@ public class RoboInteracao : MonoBehaviour
         guia.SetActive(false);
 
         scriptAnim = GetComponent<RoboAnim>();
+        movimentacaoScript = GetComponent<Movimentacao>();
+
         sprite = GetComponent<SpriteRenderer>();
         podeAtirar = true;
     }
@@ -28,7 +30,7 @@ public class RoboInteracao : MonoBehaviour
         virado = sprite.flipX;
 
         if (!guia.activeSelf){
-            if (Input.GetKeyDown(KeyCode.E) && podeAtirar){
+            if (Input.GetKeyDown(KeyCode.E) && podeAtirar && movimentacaoScript.GetPodeAndar()){
                 StartCoroutine(Tiro());
             }
         }

@@ -6,7 +6,10 @@ public class Painel1 : ObjInteragivel
 {
     [SerializeField] GameObject painel;
     [SerializeField] GameObject porta;
-    
+    Porta scriptPorta;
+
+    [SerializeField] AudioSource controladorSom;
+    [SerializeField] AudioClip somPorta;
     
     private void Update() {
         if (getPlayerPerto()){
@@ -29,17 +32,19 @@ public class Painel1 : ObjInteragivel
     }
 
     public void AbrirPorta(){
-        if (porta.activeSelf){
+        if (!scriptPorta.GetAberta()){
             if (painel.activeSelf){
                 painel.SetActive(false);
             }
-            porta.SetActive(false);
+            scriptPorta.AbrePorta(true);
+            controladorSom.PlayOneShot(somPorta);
         }
     }
 
     private void Start() {
         achaPersonagem("Cientista");
         moveScript = personagem.GetComponent<Movimentacao>();
+        scriptPorta = porta.GetComponent<Porta>();
     }
 
     override public void OnTriggerEnter2D(Collider2D collider){

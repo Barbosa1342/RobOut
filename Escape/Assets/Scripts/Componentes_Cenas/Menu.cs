@@ -6,10 +6,17 @@ using UnityEngine.SceneManagement;
 public class Menu1 : MonoBehaviour
 {
     [SerializeField] string nomeFase;
+    [SerializeField] string creditos;
     public void Jogar()
     {
         SceneManager.LoadScene(nomeFase);
     }
+
+    public void Creditos()
+    {
+        SceneManager.LoadScene(creditos);
+    }
+
     public void Sair()
     {
         #if UNITY_EDITOR
